@@ -21,7 +21,7 @@ The main content of this project is to identify the license plates of Chinese ve
 |-- README.md
 |-- __pycache__
 |-- demo.py        # 运行测试程序（只能识别蓝色车牌）
-|-- detect.py      # 车牌提取喝模型等函数
+|-- detect.py      # 车牌提取和模型等函数
 |-- model          # 模型文件
 |   |-- cascade.xml
 |   |-- model12.h5
