@@ -5,7 +5,8 @@ if __name__ == '__main__':
 
     start_time = time.time()
 
-    image = cv2.imread("./test_images/1.jpg")
+    img = '1.jpg'
+    image = cv2.imread("./test_images/" + img)
     Cascade_Image = Cascade_Dection(image)
 
     flag = 0  # flag的作用是用来检测如果Cascade级联分类器初步分类到车牌但是后期HSV却无法识别。往往这种情况是由于图像过于模糊情况下，当然这也是级联分类器优点
@@ -62,6 +63,7 @@ if __name__ == '__main__':
                     print("车牌号： %s 置信度： %.4f" % (res, confidence))
                     r = [box[1][0], box[2][1], width, height]
                     image = drawRectBox(image, r, res + " " + str(round(confidence, 3)))
+                    cv2.imwrite('./results/' + img, image)
                     cv2.imshow("wd", Crop0)
                     cv2.imshow("OR", image)
                 if compare_value > 0:
@@ -73,6 +75,7 @@ if __name__ == '__main__':
                     r = [box[2][0], box[2][1], width, height]
                     image = drawRectBox(image, r, res + " " + str(round(confidence, 3)))
                     print("车牌号： %s 置信度： %.4f" % (res, confidence))
+                    cv2.imwrite('./results/' + img, image)
                     cv2.imshow("wd", Crop0)
                     cv2.imshow("ORI", image)
 
@@ -129,6 +132,7 @@ if __name__ == '__main__':
                     cv2.imshow("DST", CROP)
                 res, confidence = recognizeOne(CROP)  # 识别车牌内容
                 image = drawRectBox(image, rect, res + " " + str(round(confidence, 3)))
+                cv2.imwrite('./results/' + img, image)
                 cv2.imshow("ORI", image)
                 print("车牌号： %s 置信度： %.4f" % (res, confidence))
 
@@ -156,6 +160,7 @@ if __name__ == '__main__':
                     cv2.imshow("DST", CROP)
                 res, confidence = recognizeOne(CROP)
                 image = drawRectBox(image, rect, res + " " + str(round(confidence, 3)))
+                cv2.imwrite('./results/' + img, image)
                 cv2.imshow("ORI", image)
                 print("车牌号： %s 置信度： %.4f" % (res, confidence))
         break
@@ -169,6 +174,7 @@ if __name__ == '__main__':
             res, confidence = recognizeOne(image_rgb)
             image = drawRectBox(image, rect_refine, res + " " + str(round(confidence, 3)))
             print(res, confidence)
+        cv2.imwrite('./results/' + img, image)
         cv2.imshow("DST", image)
 
     end_time = time.time()
