@@ -1,7 +1,7 @@
 # License-Plate-Recognition
 ## Introdution
 The main content of this project is to identify the license plates of Chinese vehicles. We use cascaded classifiers to extract license plates and We use deep learning for character extraction.
-![车牌识别](https://www.hualigs.cn/image/60b4a13e021a4.jpg)
+![车牌识别](https://pic.imgdb.cn/item/60d7ec535132923bf8653066.jpg)
 
 ## Requirement
 - Tensorflow2.0
@@ -32,4 +32,4 @@ The main content of this project is to identify the license plates of Chinese ve
 ```
 
 ## Results
-![](https://www.hualigs.cn/image/60b4a4f47a1db.jpg)
+![results](https://pic.imgdb.cn/item/60d7ecb15132923bf8673fe6.jpg)
